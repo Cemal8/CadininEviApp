@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+	<style name="Maui.SplashTheme" parent="Theme.SplashScreen">
+		<!-- Arka plan rengini beyaz yap -->
+		<item name="android:windowSplashScreenBackground">#FFFFFF</item>
+
+		<!-- Splash görselini tamamen iptal et -->
+		<item name="android:windowSplashScreenAnimatedIcon">@null</item>
+
+		<!-- Arka plan da şeffaf olsun -->
+		<item name="android:windowSplashScreenIconBackgroundColor">@android:color/transparent</item>
+
+		<!-- Animasyon süresi sıfır -->
+		<item name="android:windowSplashScreenAnimationDuration">0</item>
+	</style>
+</resources>
