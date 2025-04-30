@@ -1,5 +1,6 @@
 ﻿using Android;
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using AndroidX.Core.App;
@@ -19,10 +20,10 @@ namespace CadininEvi.Platforms.Android
 
             string[] permissions =
             {
-        Manifest.Permission.Camera,
-        Manifest.Permission.AccessFineLocation,
-        Manifest.Permission.AccessCoarseLocation
-    };
+                Manifest.Permission.Camera,
+                Manifest.Permission.AccessFineLocation,
+                Manifest.Permission.AccessCoarseLocation
+            };
 
             var missingPermissions = permissions
                 .Where(p => ContextCompat.CheckSelfPermission(this, p) != Permission.Granted)
@@ -31,6 +32,14 @@ namespace CadininEvi.Platforms.Android
             if (missingPermissions.Any())
             {
                 ActivityCompat.RequestPermissions(this, missingPermissions, 101);
+            }
+        }
+
+        public void HandleActivityResult(int requestCode, int resultCode, Intent data)
+        {
+            if (requestCode == 1001)
+            {
+                CadininEvi.CustomWebChromeClient.OnFileChooserResult(data);
             }
         }
 
